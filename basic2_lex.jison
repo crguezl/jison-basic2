@@ -10,17 +10,7 @@
 
 %%
 
-S   : A
-           { return $1+" identifiers"; }
-    ;
 A   : /* empty */  
-           { 
-              console.log("starting"); 
-              $$ = 0; 
-           }
-    | A x  { 
-              $$ = $1 + 1;  
-              console.log($$)
-           }
+    | A x 
     ;
 
