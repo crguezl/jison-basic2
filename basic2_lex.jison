@@ -4,7 +4,8 @@
 %%
 
 \s+               {/* skip whitespace */}
-[a-zA-Z_]\w*      {return 'x';}
+\d+               { return 'num'; }
+[a-zA-Z_]\w*      { return 'x'; }
 
 /lex
 
@@ -12,5 +13,6 @@
 
 A   : /* empty */  
     | A x 
+    | A num
     ;
 
