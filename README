@@ -1,0 +1,20 @@
+Practica de la Asignatura Procesadores de Lenguajes 
+del Grado de Informática de la ETSII ULL.
+
+Análisis Sintáctico Ascendente. Primeros pasos.
+
+Véa la sección "Ejemplo Simple en Jison" en de los apuntes
+
+http://nereida.deioc.ull.es/~plgrado/javascriptexamples/node119.html#SECTION02722000000000000000
+(La URL puede cambiar)
+
+Modifique el ejemplo en
+
+https://github.com/crguezl/jison-basic2
+
+para que el lenguaje acepte una secuencia
+de sentencias de asignación de la forma ID = NUM separadas
+por puntos y comas. El analizador retorna un hash/objeto 
+cuyas claves son los identificadores y cuyos valores 
+son los números.
+Modifique los analizadores léxico y sintáctico de forma conveniente.
