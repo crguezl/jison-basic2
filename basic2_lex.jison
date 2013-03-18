@@ -1,26 +1,27 @@
-/* description: Basic grammar that contains a nullable A nonterminal. */
+/* lenguaje de secuencias de sentencias de asignación de la forma ID = NUM 
+   separadas por ';'  */
 
 %lex
 %%
 
-\s+               {/* skip whitespace */}
-[a-zA-Z_]\w*      {return 'x';}
+\s+                          { /* skip whitespace */ }
+[a-zA-Z_]\w*                 { return 'ID'; }
+\d+(\.\d*)?([-+]?[eE]\d+)?   { return 'NUM'; }
+[=;]]                        { return yytext; }
+.                            { return 'INVALID'}
 
 /lex
 
+%{
+var symbol_table = {};
+%}
+
 %%
 
-S   : A
-           { return $1+" identifiers"; }
+s   : e
+    | s ';' e
     ;
-A   : /* empty */  
-           { 
-              console.log("starting"); 
-              $$ = 0; 
-           }
-    | A x  { 
-              $$ = $1 + 1;  
-              console.log($$)
-           }
+
+e   : ID '=' NUM
     ;
 
