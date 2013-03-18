@@ -54,7 +54,7 @@ s   : e
 e   : ID '=' NUM       { s[$1] = $$ = yytext;}
     | ID '=' INVALID   
         {  
-          throw  new Error('Number expected on line ' + (yy.lexer.yylineno + 1) + ":\n" + yy.lexer.showPosition()+'\n');
+          throw new Error('Number expected on line ' + (yy.lexer.yylineno + 1) + ":\n" + yy.lexer.showPosition()+'\n');
         }
     ;
 
