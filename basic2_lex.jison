@@ -7,21 +7,23 @@
 \s+                          { /* skip whitespace */ }
 [a-zA-Z_]\w*                 { return 'ID'; }
 \d+(\.\d*)?([-+]?[eE]\d+)?   { return 'NUM'; }
-[=;]]                        { return yytext; }
+[=;]                         { return yytext; }
 .                            { return 'INVALID'}
 
 /lex
 
 %{
-var symbol_table = {};
+var s = {};
 %}
 
 %%
+p   : s { console.log(JSON.stringify(s, undefined, 2)); }
+    ;
 
 s   : e
     | s ';' e
     ;
 
-e   : ID '=' NUM
+e   : ID '=' NUM { s[$1] = $$ = $3;}
     ;
 
