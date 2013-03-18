@@ -6,7 +6,7 @@
 
 \s+                          { /* skip whitespace */ }
 [a-zA-Z_]\w*                 { return 'ID'; }
-\d+(\.\d*)?([-+]?[eE]\d+)?   { return 'NUM'; }
+\d+(\.\d*)?([-+]?[eE]\d+)?   { yylval = Number(yytext); return 'NUM'; }
 [=;]                         { return yytext; }
 .                            { return 'INVALID'}
 
@@ -17,13 +17,17 @@ var s = {};
 %}
 
 %%
-p   : s { console.log(JSON.stringify(s, undefined, 2)); }
+p   : s { 
+          var ss = JSON.stringify(s, undefined, 2); 
+          console.log(ss); 
+          return ss;
+        }
     ;
 
 s   : e
     | s ';' e
     ;
 
-e   : ID '=' NUM { s[$1] = $$ = $3;}
+e   : ID '=' NUM { s[$1] = $$ = yylval;}
     ;
 
