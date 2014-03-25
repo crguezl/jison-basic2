@@ -32,15 +32,6 @@ p   : s {
           var ss = JSON.stringify(s, undefined, 2); 
           console.log(ss); 
   
-          /*
-            // stringify does not work with cyclic structures
-            var parser = JSON.stringify(yy.parser, make_traverse(), 2);
-            console.log(parser);
-
-            var lexer = JSON.stringify(yy.lexer, make_traverse(), 2);
-            console.log(lexer);
-          */
-
 
           return "<ul>\n<li>symbol table:<p>"+ss+
                  "\n</ul>";
@@ -51,7 +42,7 @@ s   : e
     | s ';' e
     ;
 
-e   : ID '=' NUM       { s[$1] = $$ = yytext;}
+e   : ID '=' NUM       { s[$1] = $$ = $3;}
     | ID '=' INVALID   
         {  
           throw new Error('Number expected on line ' + (yy.lexer.yylineno + 1) + ":\n" + yy.lexer.showPosition()+'\n');
