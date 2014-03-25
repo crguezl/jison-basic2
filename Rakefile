@@ -1,9 +1,3 @@
-# install package:
-#     sudo npm install beautifier
-# 
-#   more about beautifier:
-#       https://github.com/rickeyski/node-beautifier
-
 desc "compile the grammar basic2_lex.jison"
 task :default => %w{basic2_lex.js} 
 
