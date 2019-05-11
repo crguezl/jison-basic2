@@ -4,23 +4,25 @@
 %%
 
 \s+               {/* skip whitespace */}
-[a-zA-Z_]\w*      {return 'x';}
+\d+               { return 'num'; }
+[a-zA-Z_]\w*      { return 'x'; }
 
 /lex
 
 %%
 
-S   : A
-           { return $1+" identifiers"; }
-    ;
 A   : /* empty */  
            { 
-              console.log("starting"); 
+              console.log(`starting`); 
               $$ = 0; 
            }
-    | A x  { 
+    | A x { 
               $$ = $1 + 1;  
-              console.log($$)
+              console.log(`One more word (${yytext}) count: `+$$)
+           }
+    | A num { 
+              $$ = $1 + 1;  
+              console.log(`One more num (${yytext}) count: `+$$)
            }
     ;
 

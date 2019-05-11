@@ -8,12 +8,19 @@
   <body>
     <h1>basic2_lex demo</h1>
     <div id="content">
-      <script src="jquery/jquery.js"></script> 
+      <!--
+        <script src="jquery/jquery.js"></script> 
+      ´-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
       <script src="basic2_lex.js"></script>
       <script src="main.js"></script>
       <p>
-        <input type="text" value="x x x x" /> <button>parse</button> 
-        <span id="output"></span> <!-- Output goes here! -->
+        <input type="text" value="x 23 45 y" /> <button>parse</button> 
+        <pre>
+          <span id="output">
+          </span> <!-- Output goes here! -->
+        </pre>
       </p>
     </div>
   </body>
