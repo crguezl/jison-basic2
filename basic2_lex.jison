@@ -14,17 +14,6 @@
 
 %{
 var s = {};
-
-var make_traverse = function() {
-          var seen = [];
-          return function(key, val) {
-            if (typeof val == "object") {
-              if (seen.indexOf(val) >= 0) return undefined
-              seen.push(val)
-            }
-            return val
-          };
-};
 %}
 
 %%
@@ -32,16 +21,6 @@ p   : s {
           var ss = JSON.stringify(s, undefined, 2); 
           console.log(ss); 
   
-          /*
-            // stringify does not work with cyclic structures
-            var parser = JSON.stringify(yy.parser, make_traverse(), 2);
-            console.log(parser);
-
-            var lexer = JSON.stringify(yy.lexer, make_traverse(), 2);
-            console.log(lexer);
-          */
-
-
           return "<ul>\n<li>symbol table:<p>"+ss+
                  "\n</ul>";
         }
