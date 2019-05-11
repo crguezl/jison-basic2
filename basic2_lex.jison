@@ -12,7 +12,17 @@
 %%
 
 A   : /* empty */  
-    | A x 
-    | A num
+           { 
+              console.log(`starting`); 
+              $$ = 0; 
+           }
+    | A x { 
+              $$ = $1 + 1;  
+              console.log(`One more word (${yytext}) count: `+$$)
+           }
+    | A num { 
+              $$ = $1 + 1;  
+              console.log(`One more num (${yytext}) count: `+$$)
+           }
     ;
 
