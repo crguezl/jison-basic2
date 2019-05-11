@@ -1,0 +1,21 @@
+{
+  "name": "jison-basic2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "open index.html",
+    "compile": "jison -m js basic2_lex.jison"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crguezl/jison-basic2.git"
+  },
+  "keywords": [],
+  "author": "Casiano Rodriguez-Leon <casiano.rodriguez.leon@gmail.com> (https://github.com/crguezl)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crguezl/jison-basic2/issues"
+  },
+  "homepage": "https://github.com/crguezl/jison-basic2#readme"
+}
